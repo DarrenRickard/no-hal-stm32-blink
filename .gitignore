@@ -1,0 +1,5 @@
+*.pdf
+.cproject
+.mxproject
+.project
+.settings
