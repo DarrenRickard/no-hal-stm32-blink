@@ -23,7 +23,7 @@ int main(void){
     GPIOC->CRH &= ~(GPIO_CRH_CNF13 | GPIO_CRH_MODE13);
     // Set PC13 as output
     // GPIO_CRH_CNF13 already cleared to 00 for General purpose output push-pull
-    GPIOC->CRH |= GPIO_CRH_MODE13_1; // Output - 2 MHz
+    GPIOC->CRH |= GPIO_CRH_MODE13_1; // Output - 2 MHz note: _1 sets the 1st bit while _0 sets the 0th bit
     
 
     while(1){
@@ -33,5 +33,8 @@ int main(void){
         // Set PC13 LOW
         GPIOC->ODR &= ~GPIO_ODR_ODR13;
         delay(65534);
+        // XOR Alternative
+        // GPIOC->ODR ^= GPIO_ODR_ODR13;
+        // delay(65534);
     }
 }
